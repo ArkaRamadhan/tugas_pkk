@@ -61,40 +61,70 @@ var swiper = new Swiper(".review-slider", {
     },
     loop: true,
     breakpoints: {
-        0:{
+        0: {
             slidesPerView: 1,
         },
-        640:{
+        640: {
             slidesPerView: 2,
         },
-        768:{
+        768: {
             slidesPerView: 3,
         },
-        1024:{
+        1024: {
             slidesPerView: 4,
         },
     }
 });
 
-function loader(){
+function loader() {
     document.querySelector('.loader-container').classList.add('fade-out');
 }
 
-function fadeOut(){
+function fadeOut() {
     setInterval(loader, 3000);
 }
 
 window.onload = fadeOut;
 
 window.addEventListener("DOMContentLoaded", () => {
-	document.getElementById("cart").addEventListener("click", () => {
-		const sidebarEl = document.getElementsByClassName("order2")[0];
-		sidebarEl.classList.cart("sidebar--isHidden");
+    document.getElementById("cart").addEventListener("click", () => {
+        const sidebarEl = document.getElementsByClassName("order2")[0];
+        sidebarEl.classList.cart("sidebar--isHidden");
 
-		document.getElementById("cart").innerHTML = sidebarEl.classList.contains(
-			"sidebar--isHidden"
-		)
-			? "Show Sidebar"
-			: "Hide Sidebar";
-	});
+        document.getElementById("cart").innerHTML = sidebarEl.classList.contains(
+            "sidebar--isHidden"
+        )
+            ? "Show Sidebar"
+            : "Hide Sidebar";
+    });
 });
+
+let = iconCart = document.querySelector('.fa-shopping-cart');
+let closeCart = document.querySelector('.close');
+let body = document.querySelector('body');
+
+iconCart.addEventListener('click', () => {
+    body.classList.toogle('showCart')
+})
+closeCart.addEventListener('click', () => {
+    body.classList.toogle('showCart')
+})
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+

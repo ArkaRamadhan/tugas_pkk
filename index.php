@@ -18,12 +18,14 @@
 
     <!-- swaper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- bootsrap -->
 </head>
 
 <body>
 
     <!-- header section starts -->
-
+<div class="container">
     <header>
         <a href="#" class="logo"><i class="fas fa-utensils"></i>PIKA.</a>
 
@@ -40,9 +42,14 @@
             <i class="fas fa-bars" id="menu-bars"></i>
             <i class="fas fa-search" id="search-icon"></i>
             <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-shopping-cart cart" id="cart" data-toggle-sidebar="sidebar1"></a>
-        </div>
-
+            <a href="cart.php" class="fas fa-shopping-cart" id="cart" data-toggle-sidebar="sidebar1"></a>
+            <div class="dropdown">
+                <i class="dropbtn fa-solid fa-user"></i>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="logout.php" class="logout">Logout</a>
+                    </div>
+                </a>
+            </div>
     </header>
 
     <!-- header section ends -->
@@ -108,7 +115,6 @@
     <!-- home section ends -->
 
     <!-- dishes section start -->
-
     <section class="dishes" id="dishes">
         <h3 class="sub-heading">our dishes</h3>
         <h1 class="heading">popular dishes</h1>
@@ -119,7 +125,19 @@
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
                 <img src="images/burger.png" alt="">
-                <h3>tasty food</h3>
+
+                <?php
+                include 'koneksi.php';
+
+                $id_menu = $_GET['id_menu'];
+                $data = mysqli_query($koneksi, "select * from menu where id_menu ='$_GET[id_menu]'");
+                while ($d = mysqli_fetch_array($data))
+                    ?>
+                    <input type="hidden" name="id_menu" value="<?php echo $d['id_menu']; ?>">
+                    <?php echo $d['nama_makanan']; ?>
+                
+                
+                
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -672,73 +690,14 @@
     </div>
 
     <div class="credit"> copyright @ 2023 by <span>Arka Ramadhan</span> </div>
-
+    
 </section>
+</div>
     <!-- footer section ends -->
-
-    <!-- cart section start -->
-
-    <!-- <div class="dashboard-order sidebar--isHidden" id="order2 sidebar--isHidden" aria-hidden="true">
-        <h3>Order Menu</h3>
-        <div class="order-address">
-            <p>Address Delivery</p>
-            <h4>221 B Baker street,london</h4>
-        </div>
-        <div class="order-time">
-            <span class="fas fa-clock"></span> 30 mins <span class="fas fa-map-marker-alt"></span>2 km
-        </div>
-
-        <div class="order-wrapper">
-            <div class="order-card">
-                <img src="images/burger.png" alt="" class="order-image">
-                <div class="order-detail">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <i class="fas fa-times"></i><input type="text" value="1">
-                </div>
-                <h4 class="order-price">Rp.15,000</h4>
-            </div>
-
-            <div class="order-card">
-                <img src="images/burger.png" alt="" class="order-image">
-                <div class="order-detail">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <i class="fas fa-times"></i><input type="text" value="2">
-                </div>
-                <h4 class="order-price">Rp.15,000</h4>
-            </div>
-
-            <div class="order-card">
-                <img src="images/burger.png" alt="" class="order-image">
-                <div class="order-detail">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <i class="fas fa-times"></i><input type="text" value="3">
-                </div>
-                <h4 class="order-price">Rp.15,000</h4>
-            </div>
-        </div>
-        <div class="order-total">
-            <hr class="divider">
-            <p>Subtotal <span>Rp.150,000</span></p>
-            <p>Pajak (2%) <span>Rp.3,000</span></p>
-            <p>Delivery Fee<span>Rp.3,000</span></p>
-
-            <div class="order-promo">
-                <input type="text" class="input-promo" placeholder="Apply Voucher">
-                <button class="button-promo">Find Promo</button>
-            </div>
-            <hr class="divider">
-            <p>Total <span>Rp.170,000</span></p>
-        </div>
-        <button class="checkout">
-            Checkout
-        </button>
-    </div> -->
-
-    <!-- cart section ends -->
 
     <!-- loader part -->
     <div class="loader-container">
-        <img src="" alt="">
+        <img src="images/Bean Eater-1s-200px.gif" alt="">
     </div>
 
     <!-- java script -->

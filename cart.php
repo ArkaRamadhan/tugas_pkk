@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/cart.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">Shopping</h1>
+                <ul class="nav">
+                    <li><a class="home" href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a class="cart" href="#">Cart <span class="count-cart">0</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- PRODUCT LIST -->
+    <div class="product-list">
+
+    </div>
+    <!-- CART -->
+    <div class="table-cart display-none">
+        <table>
+            <thead>
+                <td>Product</td>
+                <td>Image</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Total</td>
+                <td></td>
+            </thead>
+            <!-- TABLE BODY -->
+            <tbody class="product-in-cart">
+
+            </tbody>
+        </table>
+        <div class="total"><b>TOTAL PRICE: </b><span class="total-price">0</span></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
