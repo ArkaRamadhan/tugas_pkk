@@ -3,7 +3,7 @@
 include 'koneksi.php';
 
 // menangkap data yang di kirim dari form
-$id = $_POST['id_buku'];
+$id_menu = $_POST['id_menu'];
 $nama_makanan= $_POST['nama_makanan'];
 $harga = $_POST['harga'];
 
@@ -19,7 +19,7 @@ if(!in_array($ext,$ekstensi) ) {
 	if($ukuran < 1044070){
 		$foto = $rand.'_'.$filename;
 		move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/'.$rand.'_'.$filename);
-		mysqli_query($koneksi,"insert into menu values('','$foto','$nama_makanan','$harga')");
+		mysqli_query($koneksi,"insert into menu values('','$foto','$nama_makanan','$harga','','')");
 		header("location:index.php?alert=berhasil");
 	}else{
 		header("location:index.php?alert=salah ukuran");

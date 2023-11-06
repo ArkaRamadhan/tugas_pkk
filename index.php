@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- css -->
     <link rel="stylesheet" href="styles/style.css">
@@ -19,197 +17,185 @@
     <!-- swaper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-    <!-- bootsrap -->
 </head>
 
 <body>
 
     <!-- header section starts -->
-<div class="container">
-    <header>
-        <a href="#" class="logo"><i class="fas fa-utensils"></i>PIKA.</a>
-
-        <nav class="navbar">
-            <a href="#home" class="active">home</a>
-            <a href="#dishes">dishes</a>
-            <a href="#about">about</a>
-            <a href="#menu">menu</a>
-            <a href="#review">review</a>
-            <a href="#order">order</a>
-        </nav>
-
-        <div class="icons">
-            <i class="fas fa-bars" id="menu-bars"></i>
-            <i class="fas fa-search" id="search-icon"></i>
-            <a href="#" class="fas fa-heart"></a>
-            <a href="cart.php" class="fas fa-shopping-cart" id="cart" data-toggle-sidebar="sidebar1"></a>
-            <div class="dropdown">
-                <i class="dropbtn fa-solid fa-user"></i>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="logout.php" class="logout">Logout</a>
-                    </div>
-                </a>
-            </div>
-    </header>
-
+    <?php
+    require_once('header.php');
+    ?>
     <!-- header section ends -->
+    <div class="container">
 
-    <form action="" id="search-form">
-        <input type="search" placeholder="search here.." id="search-box">
-        <label for="search-box" class="fas fa-search"></label>
-        <i class="fas fa-times" id="close"></i>
-    </form>
+        <form action="" id="search-form">
+            <input type="search" placeholder="search here.." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+            <i class="fas fa-times" id="close"></i>
+        </form>
 
-    <!-- home section start -->
+        <!-- home section start -->
 
-    <section class="home" id="home">
+        <section class="home" id="home">
 
-        <div class="swiper mySwiper home-slider">
+            <div class="swiper mySwiper home-slider">
 
-            <div class="swiper-wrapper wrapper">
+                <div class="swiper-wrapper wrapper">
 
-                <div class="swiper-slide slide">
-                    <div class="content">
-                        <span>menu special</span>
-                        <h3>Nasi Goreng</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolorum quasi ab cumqu</p>
-                        <a href="#" class="btn">order disini</a>
+                    <div class="swiper-slide slide">
+                        <div class="content">
+                            <span>menu special</span>
+                            <h3>Nasi Goreng</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolorum quasi ab cumqu</p>
+                            <a href="#" class="btn">order disini</a>
+                        </div>
+                        <div class="image">
+                            <img src="images/nasigoreng.png" alt="">
+                        </div>
                     </div>
-                    <div class="image">
-                        <img src="images/nasigoreng.png" alt="">
+
+                    <div class="swiper-slide slide">
+                        <div class="content">
+                            <span>menu special</span>
+                            <h3>Nasi Goreng</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolorum quasi ab cumqu</p>
+                            <a href="#" class="btn">order disini</a>
+                        </div>
+                        <div class="image">
+                            <img src="images/nasigoreng.png" alt="">
+                        </div>
                     </div>
+
+                    <div class="swiper-slide slide">
+                        <div class="content">
+                            <span>menu special</span>
+                            <h3>Nasi Goreng</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolorum quasi ab cumqu</p>
+                            <a href="#" class="btn">order disini</a>
+                        </div>
+                        <div class="image">
+                            <img src="images/nasigoreng.png" alt="">
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="swiper-slide slide">
-                    <div class="content">
-                        <span>menu special</span>
-                        <h3>Nasi Goreng</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolorum quasi ab cumqu</p>
-                        <a href="#" class="btn">order disini</a>
-                    </div>
-                    <div class="image">
-                        <img src="images/nasigoreng.png" alt="">
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide">
-                    <div class="content">
-                        <span>menu special</span>
-                        <h3>Nasi Goreng</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolorum quasi ab cumqu</p>
-                        <a href="#" class="btn">order disini</a>
-                    </div>
-                    <div class="image">
-                        <img src="images/nasigoreng.png" alt="">
-                    </div>
-                </div>
+                <div class="swiper-pagination"></div>
 
             </div>
 
-            <div class="swiper-pagination"></div>
+        </section>
 
-        </div>
+        <!-- home section ends -->
 
-    </section>
+        <!-- dishes section start -->
+        <section class="dishes" id="dishes">
+            <h3 class="sub-heading">our dishes</h3>
+            <h1 class="heading">popular dishes</h1>
 
-    <!-- home section ends -->
+            <div class="box-container">
 
-    <!-- dishes section start -->
-    <section class="dishes" id="dishes">
-        <h3 class="sub-heading">our dishes</h3>
-        <h1 class="heading">popular dishes</h1>
+                <?php
 
-        <div class="box-container">
+                include 'koneksi.php';
 
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="images/burger.png" alt="">
+                $details = mysqli_query($koneksi, "select * from menu where soldout='yes'");
+                $cek = mysqli_num_rows($details);
+
+                if ($cek > 0) {
+                    while ($d = mysqli_fetch_assoc($details)) {
+                        $id_menu = $d['id_menu'];
+                        $nama_makanan = $d['nama_makanan'];
+                        $harga = $d['harga'];
+                        $foto = $d['foto'];
+                ?>
+
+                        <div class="box" style="filter: grayscale(100%);">
+                            <?php
+                            if ($foto == "") {
+                                echo "<div>Gambar tidak tersedia</div>";
+                            } else {
+                            ?>
+                                <h2 id="soldout">SOLD OUT</h2>
+                                <img src="admin_page/admin/gambar/<?php echo $foto ?>" alt="">
+                            <?php
+                            }
+                            ?>
+                            <h3> <?php echo $nama_makanan; ?></h3>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>Rp. <?php echo $harga; ?></span>
+                            <!-- <input type="submit" class="btn" name="add_to_cart" value="add to cart"> -->
+                            <input type="hidden" name="id_menu" value='<?= $d['id_menu'] ?>'>
+                            <button type="submit" class="btn" name="add_to_cart">add to cart</button>
+
+                        </div>
+
+                <?php
+                    }
+                }
+                ?>
 
                 <?php
                 include 'koneksi.php';
 
-                $id_menu = $_GET['id_menu'];
-                $data = mysqli_query($koneksi, "select * from menu where id_menu ='$_GET[id_menu]'");
-                while ($d = mysqli_fetch_array($data))
-                    ?>
-                    <input type="hidden" name="id_menu" value="<?php echo $d['id_menu']; ?>">
-                    <?php echo $d['nama_makanan']; ?>
-                
-                
-                
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>Rp.15,000</span>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="images/burger.png" alt="">
-                <h3>tasty food</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>Rp.15,000</span>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="images/burger.png" alt="">
-                <h3>tasty food</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>Rp.15,000</span>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="images/burger.png" alt="">
-                <h3>tasty food</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>Rp.15,000</span>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="images/burger.png" alt="">
-                <h3>tasty food</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>Rp.15,000</span>
-                <a href="#" class="btn">add to cart</a>
+                $details = mysqli_query($koneksi, "select * from menu where soldout='no'");
+                $cek = mysqli_num_rows($details);
+
+                if ($cek > 0) {
+                    while ($d = mysqli_fetch_assoc($details)) {
+                        $id_menu = $d['id_menu'];
+                        $nama_makanan = $d['nama_makanan'];
+                        $harga = $d['harga'];
+                        $foto = $d['foto'];
+                ?>
+                        <form method="post" action="cart.php">
+
+                            <div class="box">
+                                <a href="#" class="fas fa-heart"></a>
+                                <a href="#" class="fas fa-eye"></a>
+                                <?php
+                                if ($foto == "") {
+                                    echo "<div>Gambar tidak tersedia</div>";
+                                } else {
+                                ?>
+                                    <img src="admin_page/admin/gambar/<?php echo $foto ?>" alt="">
+                                <?php
+                                }
+                                ?>
+                                <h3> <?php echo $nama_makanan; ?></h3>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>Rp. <?php echo $harga; ?></span>
+                                <!-- <input type="submit" class="btn" name="add_to_cart" value="add to cart"> -->
+                                <input type="hidden" name="id_menu" value='<?= $d['id_menu'] ?>'>
+                                <button type="submit" class="btn" name="add_to_cart">add to cart</button>
+                        </form>
             </div>
 
-        </div>
+
+
+
+
+    <?php
+                    }
+                }
+    ?>
+
+
+
+
+    </div>
     </section>
 
     <!-- dishes section ends -->
@@ -650,49 +636,49 @@
 
     <section class="footer">
 
-    <div class="box-container">
+        <div class="box-container">
 
-        <div class="box">
-            <h3>locations</h3>
-            <a href="#">india</a>
-            <a href="#">indonesia</a>
-            <a href="#">amerika</a>
-            <a href="#">rusia</a>
-            <a href="#">japan</a>
+            <div class="box">
+                <h3>locations</h3>
+                <a href="#">india</a>
+                <a href="#">indonesia</a>
+                <a href="#">amerika</a>
+                <a href="#">rusia</a>
+                <a href="#">japan</a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#">home</a>
+                <a href="#">dishes</a>
+                <a href="#">about</a>
+                <a href="#">review</a>
+                <a href="#">order</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#">+123-456-7890</a>
+                <a href="#">+111-222-3333</a>
+                <a href="#">+arkaramadhan@gmail.com</a>
+                <a href="#">+arka@gmail.com</a>
+                <a href="#">bandung, indonesia</a>
+            </div>
+
+            <div class="box">
+                <h3>follow us</h3>
+                <a href="#">facebook</a>
+                <a href="#">twitter</a>
+                <a href="#">instagram</a>
+                <a href="#">linkedin</a>
+            </div>
+
         </div>
 
-        <div class="box">
-            <h3>quick links</h3>
-            <a href="#">home</a>
-            <a href="#">dishes</a>
-            <a href="#">about</a>
-            <a href="#">review</a>
-            <a href="#">order</a>
-        </div>
+        <div class="credit"> copyright @ 2023 by <span>Arka Ramadhan</span> </div>
 
-        <div class="box">
-            <h3>contact info</h3>
-            <a href="#">+123-456-7890</a>
-            <a href="#">+111-222-3333</a>
-            <a href="#">+arkaramadhan@gmail.com</a>
-            <a href="#">+arka@gmail.com</a>
-            <a href="#">bandung, indonesia</a>
-        </div>
-
-        <div class="box">
-            <h3>follow us</h3>
-            <a href="#">facebook</a>
-            <a href="#">twitter</a>
-            <a href="#">instagram</a>
-            <a href="#">linkedin</a>
-        </div>
-
+    </section>
     </div>
-
-    <div class="credit"> copyright @ 2023 by <span>Arka Ramadhan</span> </div>
-    
-</section>
-</div>
     <!-- footer section ends -->
 
     <!-- loader part -->
@@ -702,6 +688,7 @@
 
     <!-- java script -->
     <script src="js/script.js"></script>
+
 
 
 </body>

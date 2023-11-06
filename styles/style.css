@@ -19,6 +19,10 @@
     transition: all .2s linear;
 }
 
+a {
+    text-decoration: none;
+}
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
@@ -785,6 +789,32 @@ body.showCart .cartTab {
 .order-wrapper::-webkit-scrollbar-thumb {
     background-color: var(--green);
     border-radius: 20px;
+}
+
+#jumlah {
+    border-radius: 3rem;
+    color: red;
+    position: absolute;
+    top: -0.6rem;
+    z-index: 100;
+}
+
+.price-details h6 {
+    padding: 4% 2%;
+}
+
+#soldout {
+    position: absolute;
+    top: auto;
+    z-index: 1000;
+    color: white;
+    padding: 2rem;
+    background-color: gray;
+    border-radius: 50%;
+}
+
+.quantity{
+    background-color: #27ae60;
 }
 
 

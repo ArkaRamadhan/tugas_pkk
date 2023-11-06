@@ -3,11 +3,11 @@
 include 'koneksi.php';
 
 // menangkap data id yang di kirim dari url
-$id = $_GET['id_buku'];
+$id = $_GET['id_menu'];
 
 
 // menghapus data dari database
-mysqli_query($koneksi,"delete from daftar_buku where id_buku='$id'");
+mysqli_query($koneksi,"delete from menu where id_menu='$id'");
 
 // mengalihkan halaman kembali ke index.php
 header("location:index.php");

@@ -130,14 +130,19 @@
 								<div class="card-body">
 									<form method="POST" action="tambah_aksi.php" enctype="multipart/form-data">
 										<div class="form-floating mb-3 ">
-											<input type="hidden" name="id_buku">
+											<input type="hidden" name="id_menu">
 											<input class="form-control" id="nama" type="text" placeholder="Nama" name="nama_makanan" />
 											<label for="nama">Nama Makanan</label>
 										</div>
 										<div class="row">
 											<div class="form-floating mb-3 col">
 												<input type="hidden" name="id_admin">
-												<input class="form-control" id="nama" type="text" placeholder="Nama" name="harga" />
+												<input class="form-control" id="nama" type="text" placeholder="6" name="harga" />
+												<label for="nama" style="margin-left:12px">Harga</label>
+											</div>
+											<div class="form-floating mb-3 col">
+												<input type="hidden" name="id_admin">
+												<input class="form-control" id="nama" type="text" placeholder="6" name="harga" />
 												<label for="nama" style="margin-left:12px">Harga</label>
 											</div>
 

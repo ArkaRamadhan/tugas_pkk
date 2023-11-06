@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,73 +130,51 @@
 								<div class="card-body">
 									<?php
 									include 'koneksi.php';
-									$id = $_GET['id_buku'];
-									$data = mysqli_query($koneksi, "select * from daftar_buku where id_buku='$id'");
+									$id = $_GET['id_menu'];
+									$data = mysqli_query($koneksi, "select * from menu where id_menu='$id'");
 									$nomor = 1;
 									while ($d = mysqli_fetch_array($data)) {
-										?>
+									?>
 										<form method="POST" action="update.php" enctype="multipart/form-data">
 											<div class="form-floating mb-3 ">
-												<input type="hidden" name="id_buku" value="<?php echo $d['id_buku']; ?>">
-												<input type="text" name="judul"  placeholder="Judul Buku" value="<?php echo $d['judul']; ?>"
-												class="form-control" id="judul_buku" >
-												<label for="judul_buku">Judul Buku</label>
+												<input type="hidden" name="id_menu" value="<?php echo $d['id_menu']; ?>">
+												<input type="text" name="nama_makanan" placeholder="Nama Makanan" value="<?php echo $d['nama_makanan']; ?>" class="form-control" id="judul_buku">
+												<label for="judul_buku">Nama Makanan</label>
 											</div>
 
 											<div class="row">
 												<div class="form-floating mb-3 col">
-													<input type="text" name="penulis"  placeholder="Penulis" value="<?php echo $d['penulis']; ?>" class="form-control">
-													<label for="penulis" style="margin-left:12px">Penulis</label>
+													<input type="text" name="harga" placeholder="Harga" value="<?php echo $d['harga']; ?>" class="form-control">
+													<label for="penulis" style="margin-left:12px">Harga</label>
 												</div>
 
 												<div class="form-floating mb-3 col">
-													<input type="text" name="penerbit" id="penerbit"  placeholder="Penerbit" value="<?php echo $d['penerbit']; ?>" class="form-control">
-													<label for="penerbit" style="margin-left:12px">Penerbit</label>
+													<input type="text" name="filter" id="penerbit" placeholder="Jenis" value="<?php echo $d['filter']; ?>" class="form-control">
+													<label for="penerbit" style="margin-left:12px">Jenis</label>
 												</div>
 											</div>
-
-											<div class="form-floating mb-3 col">
-												<select name="genre" id="genre" class="form-select col" value="<?php echo $d['genre']; ?>" aria-label="Default select example" ">
-													<option selected>Genre</option>
-													<option value="Romance">Romance</option>
-													<option value="Horror">Horror</option>
-													<option value="Komedi">Komedi</option>
-													<option value="Fantasi">Fantasi</option>
-													<option value="Thriller">Thriller</option>
-													<option value="Historical">Historical</option>
-												</select>
-												<label for="genre">Genre</label>
+											<h3 style="text-align: center;">SOLD OUT</h3>
+											<div class="form-check-inline" style="margin-left: 38%; margin-top: 2%;">
+												<input class="form-check-input" type="radio" name="soldout" id="exampleRadios1" value="yes" checked>
+												<label class="form-check-label" for="exampleRadios1">
+													YES
+												</label>
+											</div>
+											<div class="form-check-inline">
+												<input class="form-check-input" type="radio" name="soldout" id="exampleRadios2" value="no">
+												<label class="form-check-label" for="exampleRadios2">
+													NO
+												</label>
 											</div>
 
-											<div class="row">
-												<div class="form-floating mb-3 col">
-													<input type="date" name="tahun_terbit" id="tahun_terbit" placeholder="Tahun Terbit" value="<?php echo $d['tahun_terbit']; ?>" class="form-control">
-													<label for="tahun_terbit" style="margin-left:12px">Tahun Terbit</label>
-												</div>
-
-												<div class="form-floating mb-3 col">
-													<input type="text" placeholder="NO ISBN" id="no_isbn" name="no_isbn" value="<?php echo $d['no_isbn']; ?>" class="form-control">
-													<label for="no_isbn" style="margin-left:12px">NO ISBN</label>
-												</div>
-											</div>
-
-
-											<div class="form-floating mb-3 col">
-												<input type="text" id="sinopsis" name="sinopsis" placeholder="Sinopsis" value="<?php echo $d['sinopsis']; ?>" class="form-control">
-												<label for="sinopsis">Sinopsis</label>
-											</div>
-
-
-											<script class="jsbin"
-												src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+											<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 											<div class="file-upload" name="foto">
 												<!-- <button class="file-upload-btn" type="button"
 													onclick="$('.file-upload-input').trigger( 'click' )">Add
 													Image</button> -->
 
 												<div class="image-upload-wrap">
-													<input class="file-upload-input" type='file' onchange="readURL(this);"
-														accept="foto_admin/" name="foto" />
+													<input class="file-upload-input" type='file' onchange="readURL(this);" accept="foto_admin/" name="foto" />
 													<div class="drag-text">
 														<h3>Drag and drop a file or select add Image</h3>
 													</div>
@@ -207,8 +182,7 @@
 												<div class="file-upload-content">
 													<img class="file-upload-image" src="foto_admin" alt="your image" />
 													<div class="image-title-wrap">
-														<button type="button" onclick="removeUpload()"
-															class="remove-image">Remove <span class="image-title">Uploaded
+														<button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded
 																Image</span></button>
 													</div>
 												</div>
@@ -219,7 +193,7 @@
 
 														var reader = new FileReader();
 
-														reader.onload = function (e) {
+														reader.onload = function(e) {
 															$('.image-upload-wrap').hide();
 
 															$('.file-upload-image').attr('src', e.target.result);
@@ -240,7 +214,7 @@
 													$('.file-upload-content').hide();
 													$('.image-upload-wrap').show();
 												}
-												$('.image-upload-wrap').bind('dragover', function () {
+												$('.image-upload-wrap').bind('dragover', function() {
 													$('.image-upload-wrap').addClass('image-dropping');
 												});
 											</script>
@@ -249,7 +223,7 @@
 												<a href="index.php" class="btn btn-danger">Kembali</a>
 											</div>
 										</form>
-										<?php
+									<?php
 									}
 									?>
 								</div>
@@ -269,8 +243,7 @@
 			</footer>
 		</div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 	<script src="../js/scripts.js"></script>
 </body>
 

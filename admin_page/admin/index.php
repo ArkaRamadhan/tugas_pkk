@@ -134,6 +134,8 @@
                                         <th>Foto</th>
                                         <th>Nama Makanan</th>
                                         <th>harga</th>
+                                        <th>Jenis</th>
+                                        <th>Sold Out</th>
                                         <th style="width:70%">Opsi</th>
                                     </tr>
                                 </thead>
@@ -143,6 +145,8 @@
                                         <th>Foto</th>
                                         <th>Nama Makanan</th>
                                         <th>harga</th>
+                                        <th>Jenis</th>
+                                        <th>Sold Out</th>
                                         <th style="width:70%">Opsi</th>
                                     </tr>
                                 </tfoot>
@@ -173,8 +177,17 @@
                                             </td>
 
                                             <td>
+                                                <?php echo $d['filter']; ?>
+                                            </td>
+
+                                            <td>
+                                                <?php echo $d['soldout']; ?>
+                                            </td>
+
+                                            <td>
                                                 <a href="edit.php?id_menu=<?php echo $d['id_menu']; ?>" name="id_user" class="btn btn-outline-success" style="width: 77px;">EDIT</a>
                                                 <a href="hapus.php?id_menu=<?php echo $d['id_menu']; ?>" class="btn btn-outline-danger">HAPUS</a>
+                                                <a href="soldout.php?id_menu=<?php echo $d['id_menu']; ?>" class="btn btn-outline-info">SOLD OUT</a>
                                             </td>
 
                                         </tr>
