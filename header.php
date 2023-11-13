@@ -62,18 +62,17 @@ if (isset($_POST['remove'])) {
     <a href="#" class="logo"><i class="fas fa-utensils"></i>PIKA.</a>
 
     <nav class="navbar">
-        <a href="#home" class="active text-decoration-none">home</a>
-        <a href="#dishes" class="text-decoration-none">dishes</a>
-        <a href="#about" class="text-decoration-none">about</a>
-        <a href="#menu" class="text-decoration-none">menu</a>
-        <a href="#review" class="text-decoration-none">review</a>
-        <a href="#order" class="text-decoration-none">order</a>
+        <a href="index.php#home" class="active text-decoration-none">home</a>
+        <a href="index.php#dishes" class="text-decoration-none">Menu</a>
+        <a href="index.php#about" class="text-decoration-none">about</a>
+        <a href="index.php#review" class="text-decoration-none">review</a>
+        <a href="index.php#order" class="text-decoration-none">order</a>
     </nav>
 
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
         <i class="fas fa-search" id="search-icon"></i>
-        <a href="#" class="fas fa-heart text-decoration-none"></a>
+        <a href="liked.php" class="fas fa-heart text-decoration-none"></a>
         <a href="cart.php" class="fas fa-shopping-cart text-decoration-none" id="cart" data-toggle-sidebar="sidebar1">
             <?php
 

@@ -16,7 +16,7 @@ function cartElement($productimg, $productname,$productprice,$id_menu){
     <div class='border rounded'>
         <div class='row bg-white'>
             <div class='col-md-3 pl-0'>
-                <img src='admin_page/admin/gambar/$productimg' class='img-fluid'>
+                <img src='admin/gambar/$productimg' class='img-fluid'>
             </div>
             <div class='col-md-6 productname' style='margin-top: 2rem;'>
                 <h5 class='pt-2'>$productname</h5>
