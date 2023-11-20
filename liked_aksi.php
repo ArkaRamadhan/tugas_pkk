@@ -3,32 +3,25 @@
 include 'koneksi.php';
 
 // menangkap data yang di kirim dari form
-$id_menu = $_POST['id_menu'];
-$nama_makanan= $_POST['nama_makanan'];
-$harga = $_POST['harga'];
+if (isset($_POST['liked'])) {
 
-$rand = rand();
-$ekstensi =  array('png','jpg','jpeg','gif');
-$filename = $_FILES['foto']['name'];
-$ukuran = $_FILES['foto']['size'];
-$ext = pathinfo($filename, PATHINFO_EXTENSION);
+	$foto = $_POST['foto'];
+	$nama_makanan = $_POST['nama_makanan'];
+	$harga = $_POST['harga'];
+	$soldout = $_POST['soldout'];
 
-if(!in_array($ext,$ekstensi) ) {
-	header("location:tables.php?alert=gagal_ekstensi");
-}else{
-	if($ukuran < 1044070){
-		$foto = $rand.'_'.$filename;
-		move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/'.$rand.'_'.$filename);
-		mysqli_query($koneksi,"insert into liked values('','$foto','$nama_makanan','$harga')");
-		header("location:tables.php?alert=berhasil");
-	}else{
-		header("location:tables.php?alert=salah ukuran");
+	$select_cart = mysqli_query($koneksi, "SELECT * FROM `liked` WHERE nama_makanan = '$nama_makanan'");
+
+	if (mysqli_num_rows($select_cart) > 0) {
+		$message[] = 'product already added to cart';
+	} else {
+		$insert_product = mysqli_query($koneksi, "INSERT INTO `liked`(foto,nama_makanan, harga, soldout) VALUES('$foto', '$nama_makanan', '$harga', '$soldout')");
+		$message[] = 'product added to cart succesfully';
 	}
 }
+
+header('location:liked.php');
 // menginput data ke database
 
 
 // mengalihkan halaman kembali ke index.php
-
-
-?>

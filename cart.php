@@ -70,6 +70,22 @@ if (isset($_POST['add_to_cart'])) {
                         echo "<h5>Cart is empty</h5>";
                     }
 
+                    if (isset($_SESSION['cart'])) {
+                        $id_menu = array_column($_SESSION['cart'], 'id_menu');
+
+                        $result2 = mysqli_query($koneksi, "select * from liked where soldout='no'");
+                        while ($d = mysqli_fetch_assoc($result2)) {
+                            foreach ($id_menu as $id) {
+                                if ($d["id_menu"] == $id) {
+                                    cartElement($d['foto'], $d['nama_makanan'], $d['harga'], $d['id_menu']);
+                                    $total = $total + (int)$d['harga'];
+                                }
+                            }
+                        }
+                    } else {
+                        echo "<h5>Cart is empty</h5>";
+                    }
+
                     ?>
                 </div>
             </div>
@@ -92,30 +108,17 @@ if (isset($_POST['add_to_cart'])) {
                             <h6>Delivery Charges</h6>
                             <hr>
                             <h6>Amount Payable</h6>
-                            <?php
-									include 'koneksi.php';
-									$data = mysqli_query($koneksi, "select * from menu where id_menu='$id'");
-									$nomor = 1;
-									while ($d = mysqli_fetch_array($data)) {
-									?>
-                            <form action="checkout.php" method="post">
-                            <input type="hidden" value="<?php $row['id_menu'] ?>" name='id_menu'>
-                            <input type="hidden" value="<?php $row['foto'] ?>" name='foto'>
-                            <input type="hidden" value="<?php $row['nama_makanan'] ?>" name='nama_makanan'>
-                            <input type="hidden" value="<?php $row['harga'] ?>" name='harga'>
-                            <input type="submit" value="CHECKOUT" class='btn btn-danger mb-4'>
-                            </form>
-                            <?php
-                                    }
-                            ?>
+                            <div>
+                                <a href="checkout.php" class='btn btn-danger mb-4 <?= ($total > 0) ? '' : 'disabled'; ?>'>CHECKOUT</a>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <h6>Rp.<?php echo $total;?></h6>
+                            <h6>Rp.<?php echo $total; ?></h6>
                             <h6 class="text-success">FREE</h6>
                             <hr>
                             <h6>Rp.<?php
-                                echo $total
-                            ?></h6>
+                                    echo $total
+                                    ?></h6>
                         </div>
                     </div>
                 </div>

@@ -24,6 +24,9 @@ $ext = pathinfo($filename, PATHINFO_EXTENSION);
 			mysqli_query($koneksi,"update menu set foto='$foto', nama_makanan='$nama_makanan', harga='$harga', filter='$filter', soldout='$soldout' where id_menu='$id'");
 			header("location:tables.php?alert=berhasil");
 		}
+
+		mysqli_query($koneksi,"update liked set soldout='$soldout' where nama_makanan='$nama_makanan'");
+
 		
 
 // mengalihkan halaman kembali ke index.php

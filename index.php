@@ -153,16 +153,16 @@
                         $nama_makanan = $d['nama_makanan'];
                         $harga = $d['harga'];
                         $foto = $d['foto'];
+                        $soldout = $d['soldout'];
                 ?>
-
                         <div class="box">
                             <form action="liked_aksi.php" method="post">
-                                <a href="liked.php?id_menu=<?php echo $d['id_menu']; ?>" name='liked' class="fas fa-heart"><input type="submit" value="" name="liked"></a>
                                 <input type="hidden" value="<?= $d['id_menu'] ?>" name='id_menu'>
-                                <!-- <input type="file" value="admin/gambar/<?php echo $foto ?>" name='foto'> -->
+                                <input type="hidden" value="<?php echo $d['foto']; ?>" name='foto'>
                                 <input type="hidden" value="<?php echo $d['nama_makanan'] ?>" name='nama_makanan'>
                                 <input type="hidden" value="<?php echo $d['harga'] ?>" name='harga'>
-                                <!-- <input type="submit" name="liked"> -->
+                                <input type="hidden" value="<?php echo $d['soldout'] ?>" name='soldout'>
+                                <button type="submit" name="liked" class="fas fa-heart"></button>
                             </form>
                             <form method="post" action="cart.php">
                                 <?php
@@ -184,7 +184,11 @@
                                 </div>
                                 <span>Rp. <?php echo $harga; ?></span>
                                 <!-- <input type="submit" class="btn" name="add_to_cart" value="add to cart"> -->
-                                <input type="hidden" name="id_menu" value='<?= $d['id_menu'] ?>'>
+                                <input type="hidden" value="<?= $d['id_menu'] ?>" name='id_menu'>
+                                <input type="hidden" value="<?php echo $d['foto']; ?>" name='foto'>
+                                <input type="hidden" value="<?php echo $d['nama_makanan'] ?>" name='nama_makanan'>
+                                <input type="hidden" value="<?php echo $d['harga'] ?>" name='harga'>
+                                <input type="hidden" value="<?php echo $d['soldout'] ?>" name='soldout'>
                                 <button type="submit" class="btn" name="add_to_cart">add to cart</button>
                             </form>
                         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2023 at 12:56 AM
+-- Generation Time: Nov 21, 2023 at 12:14 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,6 +43,28 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `liked`
+--
+
+CREATE TABLE `liked` (
+  `id_menu` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `nama_makanan` varchar(255) NOT NULL,
+  `harga` double NOT NULL,
+  `soldout` enum('yes','no') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `liked`
+--
+
+INSERT INTO `liked` (`id_menu`, `foto`, `nama_makanan`, `harga`, `soldout`) VALUES
+(69, '1129427345_fruit-tea.png', 'Fruit tea', 3500, 'no'),
+(70, '1768431661_burger.png', 'burger', 6000, 'no');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `menu`
 --
 
@@ -51,7 +73,7 @@ CREATE TABLE `menu` (
   `foto` varchar(255) NOT NULL,
   `nama_makanan` varchar(255) NOT NULL,
   `harga` float NOT NULL,
-  `filter` enum('makanan_berat','minuman','makanan_ringan') NOT NULL,
+  `filter` enum('makanan','minuman','cemilan') NOT NULL,
   `soldout` enum('yes','no') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -60,8 +82,9 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `foto`, `nama_makanan`, `harga`, `filter`, `soldout`) VALUES
-(7, '103872215_02266b31-571a-452c-9ada-d4bb980eaa34.jpg', 'Fruit tea', 6500, 'minuman', 'yes'),
-(8, '1879219739_teh_pucuk.png', 'Teh Pucuk', 6000, 'minuman', 'no');
+(18, '1129427345_fruit-tea.png', 'Fruit tea', 3500, 'minuman', 'no'),
+(19, '1768431661_burger.png', 'burger', 6000, 'makanan', 'no'),
+(20, '1251299831_basreng.png', 'Basreng', 3000, 'cemilan', 'no');
 
 -- --------------------------------------------------------
 
@@ -70,11 +93,20 @@ INSERT INTO `menu` (`id_menu`, `foto`, `nama_makanan`, `harga`, `filter`, `soldo
 --
 
 CREATE TABLE `transaksi` (
-  `id_transaksi` int(11) NOT NULL,
-  `product` varchar(255) NOT NULL,
+  `id_menu` int(11) NOT NULL,
+  `nama_makanan` varchar(255) NOT NULL,
   `foto` varchar(255) NOT NULL,
-  `harga` varchar(255) NOT NULL
+  `harga` varchar(255) NOT NULL,
+  `total` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_menu`, `nama_makanan`, `foto`, `harga`, `total`) VALUES
+(42, 'Fruit tea', '1129427345_fruit-tea.png', '3500', 1),
+(43, 'burger', '1768431661_burger.png', '6000', 1);
 
 -- --------------------------------------------------------
 
@@ -109,6 +141,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
+-- Indexes for table `liked`
+--
+ALTER TABLE `liked`
+  ADD PRIMARY KEY (`id_menu`);
+
+--
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
@@ -118,7 +156,7 @@ ALTER TABLE `menu`
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id_transaksi`);
+  ADD PRIMARY KEY (`id_menu`);
 
 --
 -- Indexes for table `user`
@@ -137,16 +175,22 @@ ALTER TABLE `admin`
   MODIFY `id_admin` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `liked`
+--
+ALTER TABLE `liked`
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+
+--
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `user`
